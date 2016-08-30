@@ -18,46 +18,66 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fW2-2i-fZc">
-                                <rect key="frame" x="230" y="105" width="140" height="128"/>
+                                <rect key="frame" x="230" y="80" width="140" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="0NT-4m-qrU"/>
                                     <constraint firstAttribute="width" constant="140" id="ikU-yh-SQo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="3px-Vr-VL9"/>
+                                </connections>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6f3-De-PLO">
-                                <rect key="frame" x="230" y="353" width="140" height="128"/>
+                                <rect key="frame" x="230" y="328" width="140" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="2hb-kz-zSt"/>
                                     <constraint firstAttribute="height" constant="128" id="nf2-gq-bGr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="DFh-TS-f2d"/>
+                                </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkg-Ci-eqo">
-                                <rect key="frame" x="410" y="154" width="52" height="30"/>
+                                <rect key="frame" x="410" y="129" width="52" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Encode"/>
+                                <connections>
+                                    <action selector="encodeTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ogd-ro-ggb"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plain text:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QpL-Fu-D5R">
-                                <rect key="frame" x="262" y="60" width="75" height="21"/>
+                                <rect key="frame" x="262" y="35" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cipher text:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Hg-Me-GbR">
-                                <rect key="frame" x="255" y="293" width="89" height="21"/>
+                                <rect key="frame" x="255" y="268" width="89" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="je0-qi-UjJ">
-                                <rect key="frame" x="410" y="402" width="54" height="30"/>
+                                <rect key="frame" x="410" y="377" width="54" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Decode"/>
+                                <connections>
+                                    <action selector="decodeTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sIJ-zT-w7h"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BkV-Z4-bI7">
+                                <rect key="frame" x="271.5" y="555" width="57" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Clear All"/>
+                                <connections>
+                                    <action selector="clearAllTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QR7-Cb-r9n"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -66,16 +86,22 @@
                             <constraint firstItem="je0-qi-UjJ" firstAttribute="centerY" secondItem="6f3-De-PLO" secondAttribute="centerY" id="H3q-mj-T6f"/>
                             <constraint firstItem="fW2-2i-fZc" firstAttribute="top" secondItem="QpL-Fu-D5R" secondAttribute="bottom" constant="24" id="KlT-W9-c3n"/>
                             <constraint firstItem="je0-qi-UjJ" firstAttribute="leading" secondItem="6f3-De-PLO" secondAttribute="trailing" constant="40" id="QV1-Ml-GNy"/>
-                            <constraint firstItem="QpL-Fu-D5R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="Sam-Er-4dv"/>
+                            <constraint firstItem="BkV-Z4-bI7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R0t-zV-ZT1"/>
+                            <constraint firstItem="QpL-Fu-D5R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="Sam-Er-4dv"/>
                             <constraint firstItem="fkg-Ci-eqo" firstAttribute="leading" secondItem="fW2-2i-fZc" secondAttribute="trailing" constant="40" id="UVu-c4-imb"/>
                             <constraint firstItem="4Hg-Me-GbR" firstAttribute="top" secondItem="fW2-2i-fZc" secondAttribute="bottom" constant="60" id="WeB-oH-8lT"/>
                             <constraint firstItem="6f3-De-PLO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gYR-Ht-Jwr"/>
                             <constraint firstItem="4Hg-Me-GbR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ge7-cA-YW8"/>
                             <constraint firstItem="fW2-2i-fZc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="i9t-dh-9Z2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BkV-Z4-bI7" secondAttribute="bottom" constant="15" id="oFt-6N-pFN"/>
                             <constraint firstItem="fkg-Ci-eqo" firstAttribute="centerY" secondItem="fW2-2i-fZc" secondAttribute="centerY" id="tUR-1J-mON"/>
                             <constraint firstItem="QpL-Fu-D5R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z3w-DN-XjF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="CipherTextView" destination="6f3-De-PLO" id="kPz-Q3-f3p"/>
+                        <outlet property="plainTextView" destination="fW2-2i-fZc" id="8W0-dl-DsW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
